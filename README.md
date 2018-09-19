@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.com/tillias/url-shortener-ui.svg?branch=master)](https://travis-ci.com/tillias/url-shortener-ui)
+
 # UrlShortenerUi
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.2.
