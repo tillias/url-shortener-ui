@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://openjdk-app-url-shortener1.1d35.starter-us-east-1.openshiftapps.com'
+  apiUrl: 'http://localhost:8080'
 };
 
 /*

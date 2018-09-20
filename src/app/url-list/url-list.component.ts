@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {UrlListService} from "./url-list.service";
 import {Url} from "../model/url";
 import {NotificationService} from "../integration/notification.service";
+import {environment} from "../../environments/environment";
 
 @Component({
   selector: 'app-url-list',
@@ -13,6 +14,10 @@ export class UrlListComponent implements OnInit {
   urls: Url[];
 
   constructor(private urlListService: UrlListService, private notificationService: NotificationService) {
+  }
+
+  apiUrl(){
+    return environment.apiUrl;
   }
 
   ngOnInit() {
