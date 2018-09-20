@@ -1,5 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {UrlService} from "./url.service";
+import {NotificationService} from "../integration/notification.service";
+import {Url} from "../model/url";
 
 @Component({
   selector: 'app-url',
@@ -8,16 +10,16 @@ import {UrlService} from "./url.service";
 })
 export class UrlComponent implements OnInit {
 
-  constructor(private urlService: UrlService) {
+  constructor(private urlService: UrlService, private notificationService: NotificationService) {
   }
 
   ngOnInit() {
   }
 
-  shortenUrl() {
-    let sourceUrl = 'http://test.foo/1';
-    this.urlService.shortenUrl(sourceUrl).subscribe((response) => {
+  shortenUrl(sourceUrl : string) {
+    this.urlService.shortenUrl(sourceUrl).subscribe((response: Url) => {
       console.log(response);
+      this.notificationService.urlWasShortened(response);
     });
   }
 }

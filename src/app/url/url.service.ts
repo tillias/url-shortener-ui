@@ -1,5 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
+import {environment} from "../../environments/environment";
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,6 @@ export class UrlService {
   }
 
   shortenUrl(sourceUrl: String) {
-    return this.httpClient.post('http://openjdk-app-url-shortener1.1d35.starter-us-east-1.openshiftapps.com/shorten-url', sourceUrl);
+    return this.httpClient.post(environment.apiUrl + '/shorten-url', sourceUrl);
   }
 }

@@ -1,6 +1,8 @@
 <h1>
   Shorten url
 </h1>
-<button (click)="shortenUrl()">
+
+<input #sourceUrl (keyup.enter)="shortenUrl(sourceUrl.value)" (blue)="shortenUrl(sourceUrl.value)" >
+<button (click)="shortenUrl(sourceUrl.value)">
   Shorten url
 </button>
