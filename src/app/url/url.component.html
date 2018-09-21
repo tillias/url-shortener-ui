@@ -1,9 +1,21 @@
-<h1>
-  Shorten url
-</h1>
+<div class="container">
+  <h1>Shorten url</h1>
 
-<input #sourceUrl (keyup.enter)="shortenUrl(sourceUrl.value, customHash.value)">
-<input #customHash>
-<button (click)="shortenUrl(sourceUrl.value, customHash.value)">
-  Shorten url
-</button>
+  <form>
+    <div class="form-group">
+      <label for="source-url">Source url</label>
+      <input #sourceUrl id="source-url">
+    </div>
+
+    <div class="form-group">
+      <label for="custom-hash">Custom hash</label>
+      <input #customHash id="custom-hash">
+    </div>
+
+    <button (click)="shortenUrl(sourceUrl.value, customHash.value)">
+      Shorten url
+    </button>
+  </form>
+</div>
+
+

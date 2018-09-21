@@ -7,7 +7,7 @@ import {environment} from "../../environments/environment";
 @Component({
   selector: 'app-url-list',
   templateUrl: './url-list.component.html',
-  styleUrls: ['./url-list.component.css']
+  styleUrls: ['./url-list.component.scss']
 })
 export class UrlListComponent implements OnInit {
 

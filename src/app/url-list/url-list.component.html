@@ -1,11 +1,13 @@
-<h1>
-  Url list
-</h1>
+<div class="container">
+  <h1>
+    Url list
+  </h1>
 
-<li *ngFor="let url of urls">
-  <div><span>id: </span>{{url.id}}</div>
-  <div><span>sourceUrl: </span>{{url.sourceUrl}}</div>
-  <div><span>shortcut: </span>{{url.shortcut}}</div>
-  <a
-    href="{{apiUrl()}}/redirect/{{url.id}}">{{url.shortcut}}</a>
-</li>
+  <li *ngFor="let url of urls">
+    <div><span>id: </span>{{url.id}}</div>
+    <div><span>sourceUrl: </span>{{url.sourceUrl}}</div>
+    <div><span>shortcut: </span>{{url.shortcut}}</div>
+    <a
+      href="{{apiUrl()}}/redirect/{{url.id}}">{{url.shortcut}}</a>
+  </li>
+</div>

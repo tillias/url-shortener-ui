@@ -6,7 +6,7 @@ import {Url} from "../model/url";
 @Component({
   selector: 'app-url',
   templateUrl: './url.component.html',
-  styleUrls: ['./url.component.css']
+  styleUrls: ['./url.component.scss']
 })
 export class UrlComponent implements OnInit {
 
