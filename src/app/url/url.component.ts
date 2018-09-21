@@ -16,8 +16,8 @@ export class UrlComponent implements OnInit {
   ngOnInit() {
   }
 
-  shortenUrl(sourceUrl : string) {
-    this.urlService.shortenUrl(sourceUrl).subscribe((response: Url) => {
+  shortenUrl(sourceUrl: string, customHash: string) {
+    this.urlService.shortenUrl(sourceUrl, customHash).subscribe((response: Url) => {
       console.log(response);
       this.notificationService.urlWasShortened(response);
     });

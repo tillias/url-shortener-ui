@@ -10,7 +10,13 @@ export class UrlService {
   constructor(private httpClient: HttpClient) {
   }
 
-  shortenUrl(sourceUrl: String) {
-    return this.httpClient.post(environment.apiUrl + '/shorten-url', sourceUrl);
+  shortenUrl(sourceUrl: String, customHash: String) {
+    let apiUrl = environment.apiUrl + '/shorten-url';
+
+    if (customHash && customHash.length > 0) {
+      apiUrl += "?custom-hash=" + customHash;
+    }
+
+    return this.httpClient.post(apiUrl, sourceUrl);
   }
 }
