@@ -3,6 +3,7 @@ import {UrlListService} from "./url-list.service";
 import {Url} from "../model/url";
 import {NotificationService} from "../integration/notification.service";
 import {environment} from "../../environments/environment";
+import {MatSnackBar} from "@angular/material";
 
 @Component({
   selector: 'app-url-list',
@@ -13,10 +14,10 @@ export class UrlListComponent implements OnInit {
 
   urls: Url[];
 
-  constructor(private urlListService: UrlListService, private notificationService: NotificationService) {
+  constructor(private urlListService: UrlListService, private notificationService: NotificationService, private snackBar: MatSnackBar) {
   }
 
-  apiUrl(){
+  apiUrl() {
     return environment.apiUrl;
   }
 
@@ -35,5 +36,14 @@ export class UrlListComponent implements OnInit {
       this.urls = data;
       console.log(this.urls);
     });
+  }
+
+  removeUrl(id: string) {
+    this.urlListService.deleteUrl(id).subscribe(() => {
+      this.snackBar.open('Url has been deleted', null, {
+        duration: 3000,
+      });
+      this.loadUrls();
+    })
   }
 }

@@ -15,4 +15,8 @@ export class UrlListService {
   getUrls(): Observable<Url[]> {
     return this.httpClient.get<Url[]>(environment.apiUrl + '/url');
   }
+
+  deleteUrl(id: string): Observable<any> {
+    return this.httpClient.delete(environment.apiUrl + '/url/' + id);
+  }
 }

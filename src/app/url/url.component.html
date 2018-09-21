@@ -3,18 +3,20 @@
 
   <form>
     <div class="form-group">
-      <label for="source-url">Source url</label>
-      <input #sourceUrl id="source-url">
+      <mat-form-field class="example-full-width">
+        <input matInput #sourceUrl placeholder="Source url" value="http://google.com">
+      </mat-form-field>
     </div>
 
     <div class="form-group">
-      <label for="custom-hash">Custom hash</label>
-      <input #customHash id="custom-hash">
+      <mat-form-field matTooltip="If left empty then random hash will be generated" class="example-full-width">
+        <input matInput #customHash placeholder="Custom hash">
+      </mat-form-field>
     </div>
 
-    <button (click)="shortenUrl(sourceUrl.value, customHash.value)">
-      Shorten url
-    </button>
+    <div class="form-group">
+      <button mat-raised-button (click)="shortenUrl(sourceUrl.value, customHash.value)">Shorten url</button>
+    </div>
   </form>
 </div>
 

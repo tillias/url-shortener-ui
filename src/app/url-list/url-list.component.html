@@ -3,11 +3,14 @@
     Url list
   </h1>
 
-  <li *ngFor="let url of urls">
-    <div><span>id: </span>{{url.id}}</div>
-    <div><span>sourceUrl: </span>{{url.sourceUrl}}</div>
-    <div><span>shortcut: </span>{{url.shortcut}}</div>
-    <a
-      href="{{apiUrl()}}/redirect/{{url.id}}">{{url.shortcut}}</a>
-  </li>
+  <mat-list>
+    <mat-list-item *ngFor="let url of urls">
+      <div>
+        <button mat-mini-fab (click)="removeUrl(url.id)">x</button>
+        <a matTooltip="{{url.sourceUrl}}" href="{{apiUrl()}}/redirect/{{url.id}}" target="_blank">
+          {{url.shortcut}}
+        </a>
+      </div>
+    </mat-list-item>
+  </mat-list>
 </div>
