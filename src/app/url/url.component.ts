@@ -34,13 +34,12 @@ export class UrlComponent implements OnInit {
         duration: 3000,
       });
 
-      /*
-      this.urlForm.reset({sourceUrl: ''}, {
-        emitEvent: false
-      });*/
-
       console.log(response);
       this.notificationService.urlWasShortened(response);
+    }, (error) => {
+      this.snackBar.open('Error shortening url: ' + error.message, null, {
+        duration: 3000,
+      });
     });
   }
 }

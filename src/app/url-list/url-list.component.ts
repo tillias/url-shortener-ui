@@ -39,7 +39,7 @@ export class UrlListComponent implements OnInit {
         console.log(this.urls);
       },
       (error) => {
-        this.snackBarMessage('Error loading urls list: ' + error);
+        this.snackBarMessage('Error loading urls list: ' + error.message);
       });
   }
 
@@ -64,7 +64,7 @@ export class UrlListComponent implements OnInit {
         this.loadUrls();
       },
       (error) => {
-        this.snackBarMessage('Error deleting url: ' + error);
+        this.snackBarMessage('Error deleting url: ' + error.message);
       });
   }
 
