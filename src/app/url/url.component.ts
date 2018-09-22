@@ -3,6 +3,8 @@ import {UrlService} from "./url.service";
 import {NotificationService} from "../integration/notification.service";
 import {Url} from "../model/url";
 import {MatSnackBar} from "@angular/material";
+import {FormControl, FormGroup, Validators} from "@angular/forms";
+import {ValidateUrl} from "../validators/url.validator";
 
 @Component({
   selector: 'app-url',
@@ -11,14 +13,23 @@ import {MatSnackBar} from "@angular/material";
 })
 export class UrlComponent implements OnInit {
 
-  constructor(private urlService: UrlService, private notificationService: NotificationService, private snackBar: MatSnackBar) {
+  sourceUrl = new FormControl('', [Validators.required, ValidateUrl]);
+  customHash = new FormControl('');
+
+  urlForm = new FormGroup({
+    sourceUrl: this.sourceUrl,
+    customHash: this.customHash,
+  });
+
+  constructor(private urlService: UrlService, private notificationService: NotificationService,
+              private snackBar: MatSnackBar) {
   }
 
   ngOnInit() {
   }
 
-  shortenUrl(sourceUrl: string, customHash: string) {
-    this.urlService.shortenUrl(sourceUrl, customHash).subscribe((response: Url) => {
+  shortenUrl() {
+    this.urlService.shortenUrl(this.sourceUrl.value, this.customHash.value).subscribe((response: Url) => {
       this.snackBar.open('Url has been shortened', null, {
         duration: 3000,
       });

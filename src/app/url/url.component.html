@@ -1,21 +1,27 @@
 <div class="container">
   <h1>Shorten url</h1>
 
-  <form>
+  <form [formGroup]="urlForm" (ngSubmit)="shortenUrl()">
     <div class="form-group">
       <mat-form-field class="example-full-width">
-        <input matInput #sourceUrl placeholder="Source url" value="http://google.com">
+        <input  matInput formControlName="sourceUrl" placeholder="Source url"/>
+        <mat-error *ngIf="sourceUrl.hasError('required')">
+          Source url can't be empty
+        </mat-error>
+        <mat-error *ngIf="!sourceUrl.hasError('required') && sourceUrl.hasError('validUrl')">
+          Url provided isn't valid url. Try something like http://foo.com
+        </mat-error>
       </mat-form-field>
     </div>
 
     <div class="form-group">
-      <mat-form-field matTooltip="If left empty then random hash will be generated" class="example-full-width">
-        <input matInput #customHash placeholder="Custom hash">
+      <mat-form-field class="example-full-width">
+        <input matInput formControlName="customHash" placeholder="Custom hash">
       </mat-form-field>
     </div>
 
     <div class="form-group">
-      <button mat-raised-button (click)="shortenUrl(sourceUrl.value, customHash.value)">Shorten url</button>
+      <button mat-raised-button type="submit" [disabled]="!urlForm.valid">Shorten url</button>
     </div>
   </form>
 </div>
