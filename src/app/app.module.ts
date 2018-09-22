@@ -9,6 +9,7 @@ import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {
   MatButtonModule,
+  MatDialogModule,
   MatFormFieldModule,
   MatIconModule,
   MatInputModule,
@@ -16,6 +17,7 @@ import {
   MatSnackBarModule,
   MatTooltipModule
 } from "@angular/material";
+import { ConfirmationDialogComponent } from './common/confirmation-dialog/confirmation-dialog.component';
 
 
 @NgModule({
@@ -23,6 +25,7 @@ import {
     AppComponent,
     UrlComponent,
     UrlListComponent,
+    ConfirmationDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,10 +39,12 @@ import {
     MatListModule,
     MatTooltipModule,
     MatIconModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatDialogModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  entryComponents: [ConfirmationDialogComponent]
 })
 export class AppModule {
 }
