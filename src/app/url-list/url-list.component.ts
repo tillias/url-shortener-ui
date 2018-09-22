@@ -30,14 +30,17 @@ export class UrlListComponent implements OnInit {
       if (url != null) {
         this.loadUrls();
       }
-    })
+    });
   }
 
   loadUrls() {
     this.urlListService.getUrls().subscribe((data: Url[]) => {
-      this.urls = data;
-      console.log(this.urls);
-    });
+        this.urls = data;
+        console.log(this.urls);
+      },
+      (error) => {
+        this.snackBarMessage('Error loading urls list: ' + error);
+      });
   }
 
   removeUrl(id: string) {
@@ -57,13 +60,17 @@ export class UrlListComponent implements OnInit {
 
   doRemove(id: string) {
     this.urlListService.deleteUrl(id).subscribe(() => {
-        this.snackBar.open('Url has been deleted', null, {
-          duration: 3000,
-        });
+        this.snackBarMessage('Url has been deleted');
         this.loadUrls();
       },
-      (errror) => {
-        //TODO Display message dialog
+      (error) => {
+        this.snackBarMessage('Error deleting url: ' + error);
       });
+  }
+
+  snackBarMessage(message: string) {
+    this.snackBar.open(message, null, {
+      duration: 3000,
+    });
   }
 }

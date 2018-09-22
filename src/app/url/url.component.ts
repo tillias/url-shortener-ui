@@ -34,6 +34,11 @@ export class UrlComponent implements OnInit {
         duration: 3000,
       });
 
+      /*
+      this.urlForm.reset({sourceUrl: ''}, {
+        emitEvent: false
+      });*/
+
       console.log(response);
       this.notificationService.urlWasShortened(response);
     });

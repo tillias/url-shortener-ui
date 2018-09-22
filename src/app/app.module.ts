@@ -17,7 +17,8 @@ import {
   MatSnackBarModule,
   MatTooltipModule
 } from "@angular/material";
-import { ConfirmationDialogComponent } from './common/confirmation-dialog/confirmation-dialog.component';
+import {ConfirmationDialogComponent} from './common/confirmation-dialog/confirmation-dialog.component';
+import {NotificationDialogComponent} from './common/notification-dialog/notification-dialog.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { ConfirmationDialogComponent } from './common/confirmation-dialog/confir
     UrlComponent,
     UrlListComponent,
     ConfirmationDialogComponent,
+    NotificationDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -44,7 +46,7 @@ import { ConfirmationDialogComponent } from './common/confirmation-dialog/confir
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: [ConfirmationDialogComponent]
+  entryComponents: [ConfirmationDialogComponent, NotificationDialogComponent]
 })
 export class AppModule {
 }
